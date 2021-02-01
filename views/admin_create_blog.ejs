@@ -1,0 +1,33 @@
+<style>
+    label{
+        font-size: x-large;
+        font-family: sans-serif;
+        font-weight: 700;
+    }
+</style>
+
+<div class="container">
+    <form action="/admin/post/blog" method="post" class="signIn_form">
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Category</label>
+            <input name="category" type="text" class="form-control" id="exampleFormControlInput1"
+                placeholder="Category">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput2" class="form-label">Title</label>
+            <input name="title" type="text" class="form-control" id="exampleFormControlInput2"
+                placeholder="Title">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea3" class="form-label">Description</label>
+            <textarea name="description" class="form-control" id="exampleFormControlTextarea3" rows="5"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlTextarea4" class="form-label">Content</label>
+            <textarea name="content" class="form-control" id="exampleFormControlTextarea4" rows="15"></textarea>
+          </div>
+        <div class="mb-3">
+            <input class="btn btn-success btn-lg" type="submit" value="Post Blog" class="form-control" id="exampleFormControlInput5">
+        </div>
+    </form>
+</div>

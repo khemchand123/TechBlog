@@ -1,0 +1,52 @@
+<style>
+    .blog {
+        padding: 10px;
+    }
+</style>
+
+<div>
+    <% blogs.forEach((blog)=>{ %>
+        <div class="card text-center blog">
+
+            <div class="card-header">
+                <h1>
+                    <%= blog.dataValues.title %>
+                </h1>
+            </div>
+            <div class="card-body">
+
+                <h2 class="card-text">
+                    <%= blog.dataValues.description %>
+                </h2>
+                <h4 class="card-text">
+                    <%= blog.dataValues.content %>
+                </h4>
+                <span>
+                    <a id="update" href="/admin/update/blog/<%- blog.dataValues.id %>" class="operation_btn btn btn-primary">Update</a>
+                    <a id="delete" href="/admin/delete/blog/<%- blog.dataValues.id %>" class="operation_btn btn btn-primary">Delete</a>
+                </span>
+            </div>
+            <div class="card-footer text-muted">
+                <i>
+                    <%= blog.dataValues.createdAt %>
+                </i>
+            </div>
+
+        </div>
+        <% }) %>
+</div>
+
+
+<script>
+    const user_cookie = document.cookie.split('; ')
+
+    let user_id = user_cookie[0];
+    let email_id = user_cookie[1];
+    console.log(user_id, email_id)
+
+    if(email_id != "email_id=admin%40example.com" /*not admin*/){
+        let elements = document.getElementsByClassName('operation_btn');
+        elements[0].style.display = "none";
+        elements[1].style.display = "none"; 
+    }
+</script>

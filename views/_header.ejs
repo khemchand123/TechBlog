@@ -1,0 +1,78 @@
+<style>
+     .signIn_btn {
+       margin-left: 10px;
+     }
+    .signIn{
+       color: white;
+       text-decoration: none;
+    }
+    .signIn:hover{
+       color: red;
+    }
+</style>
+
+
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">TechBlog</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/user/index/html">HTML</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/user/index/css">CSS</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/user/index/javascript">JavaScript</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/user/index/nodejs">NodeJs</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/user/index/postgresql">PostgreSQL</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/user/index/react">React</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/user/index/java">Java</a>
+              </li>
+            </ul>
+            <form class="d-flex" action="/result" method="GET">
+              <input name="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+              
+              <button type="button" class="btn btn-success signIn_btn"><a class="signIn" href="/admin/dashboard">Dashboard</a></button>
+              <button type="button" class="btn btn-success signIn_btn"><a class="signIn" href="/user/profile">Profile</a></button>
+              <button type="button" class="btn btn-success signIn_btn"><a class="signIn" href="/user/sign_in">SignIn</a></button>
+              <button type="button" class="btn btn-success signIn_btn"><a class="signIn" href="/user/logout">LogOut</a></button>
+            </form>
+          </div>
+        </div>
+      </nav>
+</header>
+
+<script>
+    user_cookie = document.cookie.split('; ')
+    user_id = user_cookie[0];
+    email_id = user_cookie[1];
+    console.log('header ', user_id, email_id)
+
+    let header_btns = document.getElementsByClassName('signIn_btn');
+
+    if(/*after logout*/ user_id == "user_id=0" || !user_id /*starting*/){
+        header_btns[0].style.display = "none";
+        header_btns[1].style.display = "none";
+        header_btns[3].style.display = "none";
+    } else if(email_id != "email_id=admin%40example.com" /*not admin*/){
+        header_btns[0].style.display = "none";
+        header_btns[2].style.display = "none";
+    } else {
+        header_btns[2].style.display = "none";
+    }
+</script>

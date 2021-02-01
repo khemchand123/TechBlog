@@ -1,0 +1,27 @@
+<style>
+    #admin_dashboard{
+        border: 10px solid darkgoldenrod;
+        text-align: center;
+        padding: 10px;
+        margin: 20px;
+    }
+    
+ </style>
+
+
+<div id="admin_dashboard">
+    <h1>
+        Dashboard
+    </h1>
+    
+    <div>
+        <button type="button" class="btn btn-success signIn_btn"><a class="signIn" href="/admin/create/blog">CREATE BLOG</a></button>
+    </div>
+
+    <div>
+        <h4><i>Users: </i><%= counter_users %></h4>
+    </div>
+    <div>
+        <h4><i>Blogs: </i><%= counter_blogs %></h4>
+    </div>
+</div>
